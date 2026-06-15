@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJMGR — 사내 포털 개선</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-slate-100">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-60 bg-slate-50 border-r border-slate-200 flex flex-col z-20">
+    <div class="px-4 flex items-center border-b border-slate-200" style="height:60px">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center mr-2">
+        <span class="text-white font-bold text-sm">PM</span>
+      </div>
+      <span class="font-semibold text-slate-900 text-lg">PJMGR</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <a href="home.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </a>
+      <a href="my-tasks.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        My Tasks
+      </a>
+      <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Projects</div>
+      <a href="project-1-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">ERP 시스템 구축</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-violet-100 text-violet-700 shrink-0">Planning</span>
+      </a>
+      <a href="project-2-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">모바일 앱 리뉴얼</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 shrink-0">Active</span>
+      </a>
+      <a href="project-3-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium text-sm">
+        <span class="truncate">사내 포털 개선</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 shrink-0">Done</span>
+      </a>
+      <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-400 hover:bg-slate-100 text-sm w-full text-left">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        New Project
+      </button>
+    </nav>
+    <div class="border-t border-slate-200 p-3 space-y-1">
+      <a href="settings-general.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Settings
+      </a>
+      <div class="flex items-center gap-2 px-3 py-2">
+        <div class="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+        <div class="min-w-0">
+          <div class="text-sm font-medium text-slate-900 truncate">김지수</div>
+          <div class="text-xs text-slate-500">PM</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-60 right-0 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10" style="height:60px">
+    <div>
+      <h1 class="text-base font-semibold text-slate-900">사내 포털 개선</h1>
+      <p class="text-xs text-slate-500">Projects / 사내 포털 개선</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="relative">
+        <input type="text" placeholder="Search..." class="pl-8 pr-3 py-1.5 text-sm bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48">
+        <svg class="w-4 h-4 absolute left-2 top-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <a href="notifications.html" class="relative p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold cursor-pointer">JK</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-16 min-h-screen">
+    <!-- Sub-nav -->
+    <div class="bg-white border-b border-slate-200 px-6">
+      <nav class="flex gap-1 -mb-px">
+        <a href="project-3-overview.html" class="px-4 py-3 text-sm font-medium text-indigo-600 border-b-2 border-indigo-600">Overview</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">Board</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">List</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">Timeline</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">Calendar</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">Reports</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">Members</a>
+        <a href="#" class="px-4 py-3 text-sm text-slate-500 hover:text-slate-700 border-b-2 border-transparent">Settings</a>
+      </nav>
+    </div>
+
+    <div class="p-6 max-w-4xl">
+
+      <!-- Project Header -->
+      <div class="mb-6">
+        <div class="flex items-center gap-3 mb-2">
+          <h1 class="text-2xl font-bold text-slate-900">사내 포털 개선</h1>
+          <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-full">Completed</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-slate-500">
+          <span>2026.01.03 ~ 2026.05.31</span>
+        </div>
+        <p class="text-sm text-slate-600 mt-2">사내 포털 사이트 UX 개선 및 성능 최적화 (Core Web Vitals 목표 달성)</p>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6 flex items-center gap-3">
+        <span class="text-2xl">🎉</span>
+        <div class="flex-1">
+          <p class="text-sm font-medium text-emerald-800">프로젝트가 2026년 5월 28일에 완료되었습니다! (예정보다 3일 빠름)</p>
+        </div>
+        <button class="px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 shrink-0">최종 리포트 보기</button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-5 mb-6">
+        <!-- Stats -->
+        <div class="col-span-1">
+          <div class="bg-white border border-slate-200 rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-slate-700 mb-4">진행 현황</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="text-slate-600">태스크 완료</span>
+                  <span class="font-semibold text-slate-900">18 / 18</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-emerald-500 h-2 rounded-full" style="width:100%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="text-slate-600">전체 진행률</span>
+                  <span class="font-semibold text-emerald-600">100%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-emerald-500 h-2 rounded-full" style="width:100%"></div>
+                </div>
+              </div>
+              <div class="pt-2 border-t border-slate-100">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-slate-500">완료일</span>
+                  <span class="text-xs font-medium text-emerald-600">2026.05.28</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestones -->
+        <div class="col-span-2">
+          <div class="bg-white border border-slate-200 rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-slate-700 mb-4">마일스톤</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 bg-emerald-50 rounded-lg">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-sm font-medium text-slate-900">M1 요구사항 분석 완료</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-slate-500">Feb 15</span>
+                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Achieved</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-emerald-50 rounded-lg">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-sm font-medium text-slate-900">M2 UI/UX 개선 완료</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-slate-500">Mar 31</span>
+                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Achieved</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-emerald-50 rounded-lg">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-sm font-medium text-slate-900">M3 개발 완료</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-slate-500">Apr 30</span>
+                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Achieved</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-emerald-50 rounded-lg">
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="text-sm font-medium text-slate-900">M4 성능 최적화 완료</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-slate-500">May 28</span>
+                  <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Achieved</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-5 mb-6">
+        <!-- Members -->
+        <div class="col-span-1">
+          <div class="bg-white border border-slate-200 rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-slate-700 mb-4">팀 멤버</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-semibold">JP</div>
+                <div>
+                  <div class="text-sm font-medium text-slate-900">박지현</div>
+                  <div class="text-xs text-slate-500">PM</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-white text-xs font-semibold">HP</div>
+                <div>
+                  <div class="text-sm font-medium text-slate-900">박현우</div>
+                  <div class="text-xs text-slate-500">Backend Dev</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+                <div>
+                  <div class="text-sm font-medium text-slate-900">이민준</div>
+                  <div class="text-xs text-slate-500">Frontend Dev</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-semibold">TJ</div>
+                <div>
+                  <div class="text-sm font-medium text-slate-900">정태양</div>
+                  <div class="text-xs text-slate-500">QA Engineer</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-semibold">SH</div>
+                <div>
+                  <div class="text-sm font-medium text-slate-900">한소희</div>
+                  <div class="text-xs text-slate-500">DevOps</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Archived Docs -->
+        <div class="col-span-2">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+            <h3 class="text-sm font-semibold text-slate-700 mb-4">보관된 문서</h3>
+            <div class="space-y-2">
+              <a href="#" class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 group">
+                <span class="text-lg">📄</span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-medium text-indigo-600 group-hover:text-indigo-700 truncate">포털 개선 요구사항 정의서.docx</div>
+                </div>
+                <div class="flex items-center gap-1 shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span class="text-xs text-slate-400">Google Docs</span>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 group">
+                <span class="text-lg">📄</span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-medium text-indigo-600 group-hover:text-indigo-700 truncate">최종 성능 테스트 리포트.docx</div>
+                </div>
+                <div class="flex items-center gap-1 shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span class="text-xs text-slate-400">Google Docs</span>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 group">
+                <span class="text-lg">📄</span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-medium text-indigo-600 group-hover:text-indigo-700 truncate">프로젝트 회고록.docx</div>
+                </div>
+                <div class="flex items-center gap-1 shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span class="text-xs text-slate-400">Google Docs</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Feed -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-slate-700 mb-4">최근 활동</h3>
+        <div class="space-y-4">
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JP</div>
+            <div class="flex-1">
+              <div class="text-sm text-slate-800">박지현이 프로젝트를 완료로 표시했습니다.</div>
+              <div class="text-xs text-slate-400 mt-0.5">May 28</div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">SH</div>
+            <div class="flex-1">
+              <div class="text-sm text-slate-800">성능 최적화 배포 완료 (Lighthouse score: 98)</div>
+              <div class="text-xs text-slate-400 mt-0.5">May 27</div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">TJ</div>
+            <div class="flex-1">
+              <div class="text-sm text-slate-800">최종 QA 완료, 이슈 없음</div>
+              <div class="text-xs text-slate-400 mt-0.5">May 26</div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">ML</div>
+            <div class="flex-1">
+              <div class="text-sm text-slate-800">프로젝트 회고록 작성 완료</div>
+              <div class="text-xs text-slate-400 mt-0.5">May 28</div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">HP</div>
+            <div class="flex-1">
+              <div class="text-sm text-slate-800">백엔드 API 최적화 완료 - 응답시간 40% 개선</div>
+              <div class="text-xs text-slate-400 mt-0.5">May 20</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-4 flex gap-2 z-50">
+    <a href="project-2-settings.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">← Prev</a>
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="task-detail.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+</body>
+</html>

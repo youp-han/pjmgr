@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모바일 앱 리뉴얼 — 보드 — PJMGR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-slate-50">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-60 bg-slate-50 border-r border-slate-200 flex flex-col z-20">
+    <div class="px-4 flex items-center border-b border-slate-200" style="height:60px">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center mr-2">
+        <span class="text-white font-bold text-sm">PM</span>
+      </div>
+      <span class="font-semibold text-slate-900 text-lg">PJMGR</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <a href="home.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </a>
+      <a href="my-tasks.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        My Tasks
+      </a>
+      <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Projects</div>
+      <a href="project-1-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">ERP 시스템 구축</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-violet-100 text-violet-700 shrink-0">Planning</span>
+      </a>
+      <a href="project-2-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium text-sm">
+        <span class="truncate">모바일 앱 리뉴얼</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 shrink-0">Active</span>
+      </a>
+      <a href="project-3-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">사내 포털 개선</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 shrink-0">Done</span>
+      </a>
+      <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-400 hover:bg-slate-100 text-sm w-full text-left">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        New Project
+      </button>
+    </nav>
+    <div class="border-t border-slate-200 p-3 space-y-1">
+      <a href="settings-general.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Settings
+      </a>
+      <div class="flex items-center gap-2 px-3 py-2">
+        <div class="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+        <div class="min-w-0">
+          <div class="text-sm font-medium text-slate-900 truncate">김지수</div>
+          <div class="text-xs text-slate-500">PM</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Top Header -->
+  <header class="fixed top-0 left-60 right-0 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10" style="height:60px">
+    <div>
+      <h1 class="text-base font-semibold text-slate-900">모바일 앱 리뉴얼 — 보드</h1>
+      <p class="text-xs text-slate-500">Projects / 모바일 앱 리뉴얼 / Board</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="relative">
+        <input type="text" placeholder="Search..." class="pl-8 pr-3 py-1.5 text-sm bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48">
+        <svg class="w-4 h-4 absolute left-2 top-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <a href="notifications.html" class="relative p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold cursor-pointer">JK</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-16 min-h-screen flex flex-col">
+
+    <!-- Sub-nav -->
+    <div class="bg-white border-b border-slate-200 px-6">
+      <div class="flex items-center gap-1">
+        <a href="project-2-overview.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Overview</a>
+        <a href="project-2-board.html" class="px-4 py-3 text-sm border-b-2 border-indigo-600 text-indigo-600 font-medium">Board</a>
+        <a href="project-2-list.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">List</a>
+        <a href="project-2-timeline.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Timeline</a>
+        <a href="project-2-calendar.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Calendar</a>
+        <a href="project-2-reports.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Reports</a>
+        <a href="project-2-members.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Members</a>
+        <a href="project-2-settings.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Settings</a>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center gap-3">
+      <div class="flex items-center gap-1.5 text-sm text-slate-700 border border-slate-200 rounded-lg px-3 py-1.5 bg-white cursor-pointer hover:bg-slate-50">
+        <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Sprint 3
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="flex items-center gap-1.5 text-sm text-slate-700 border border-slate-200 rounded-lg px-3 py-1.5 bg-white cursor-pointer hover:bg-slate-50">
+        담당자: 전체
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="flex items-center gap-1.5 text-sm text-slate-700 border border-slate-200 rounded-lg px-3 py-1.5 bg-white cursor-pointer hover:bg-slate-50">
+        우선순위: 전체
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="ml-auto">
+        <button class="flex items-center gap-1.5 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          태스크 추가
+        </button>
+      </div>
+    </div>
+
+    <!-- Board Columns -->
+    <div class="flex-1 p-6 overflow-x-auto">
+      <div class="flex gap-4 min-w-max">
+
+        <!-- Column: 할 일 -->
+        <div class="w-72 flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <h3 class="text-sm font-semibold text-slate-700">할 일</h3>
+            <span class="px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600 font-medium">3</span>
+          </div>
+          <!-- Card 1 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2">
+            <p class="text-sm font-medium text-slate-800 mb-2">푸시 알림 설정 화면 개발</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
+              <span class="text-xs text-orange-700 font-medium">High</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+              <span class="text-xs text-slate-400">Jun 20</span>
+            </div>
+          </a>
+          <!-- Card 2 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2">
+            <p class="text-sm font-medium text-slate-800 mb-2">다크모드 QA 검증</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>
+              <span class="text-xs text-amber-700 font-medium">Medium</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-semibold">SH</div>
+              <span class="text-xs text-slate-400">Jun 22</span>
+            </div>
+          </a>
+          <!-- Card 3 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2">
+            <p class="text-sm font-medium text-slate-800 mb-2">App Store 스크린샷 준비</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-slate-400 inline-block"></span>
+              <span class="text-xs text-slate-500 font-medium">Low</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-semibold">SC</div>
+              <span class="text-xs text-slate-400">Jun 21</span>
+            </div>
+          </a>
+          <button class="flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 px-2 py-2 mt-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            태스크 추가
+          </button>
+        </div>
+
+        <!-- Column: 진행 중 -->
+        <div class="w-72 flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <h3 class="text-sm font-semibold text-slate-700">진행 중</h3>
+            <span class="px-2 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 font-medium">2</span>
+          </div>
+          <!-- Card 1 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2">
+            <p class="text-sm font-medium text-slate-800 mb-2">홈 피드 무한스크롤 구현</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
+              <span class="text-xs text-orange-700 font-medium">High</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-slate-400 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                  2
+                </span>
+                <span class="text-xs text-slate-400">Jun 18</span>
+              </div>
+            </div>
+          </a>
+          <!-- Card 2 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2">
+            <p class="text-sm font-medium text-slate-800 mb-2">온보딩 화면 퍼블리싱</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>
+              <span class="text-xs text-amber-700 font-medium">Medium</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-semibold">SC</div>
+              <span class="text-xs text-slate-400">Jun 19</span>
+            </div>
+          </a>
+          <button class="flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 px-2 py-2 mt-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            태스크 추가
+          </button>
+        </div>
+
+        <!-- Column: 검토 중 -->
+        <div class="w-72 flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <h3 class="text-sm font-semibold text-slate-700">검토 중</h3>
+            <span class="px-2 py-0.5 rounded text-xs bg-amber-100 text-amber-700 font-medium">2</span>
+          </div>
+          <!-- Card 1 - OVERDUE with red left border -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2 border-l-4 border-l-red-500">
+            <p class="text-sm font-medium text-slate-800 mb-2">소셜 로그인 연동 (Google/Apple)</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+              <span class="text-xs text-red-700 font-medium">Urgent</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+              <span class="text-xs text-red-500 font-medium flex items-center gap-1">
+                Jun 17
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              </span>
+            </div>
+          </a>
+          <!-- Card 2 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2">
+            <p class="text-sm font-medium text-slate-800 mb-2">프로필 편집 API 연동</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
+              <span class="text-xs text-orange-700 font-medium">High</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+              <span class="text-xs text-red-500 font-medium">Jun 16</span>
+            </div>
+          </a>
+          <button class="flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 px-2 py-2 mt-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            태스크 추가
+          </button>
+        </div>
+
+        <!-- Column: 완료 -->
+        <div class="w-72 flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <h3 class="text-sm font-semibold text-slate-700">완료</h3>
+            <span class="px-2 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 font-medium">3</span>
+          </div>
+          <!-- Done Card 1 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2 opacity-75">
+            <p class="text-sm font-medium text-slate-500 mb-2 line-through">디자인 토큰 적용</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>
+              <span class="text-xs text-slate-400 font-medium">Medium</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-semibold">SC</div>
+              <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+          </a>
+          <!-- Done Card 2 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2 opacity-75">
+            <p class="text-sm font-medium text-slate-500 mb-2 line-through">로그인 화면 리뉴얼</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
+              <span class="text-xs text-slate-400 font-medium">High</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-semibold">SC</div>
+              <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+          </a>
+          <!-- Done Card 3 -->
+          <a href="task-detail.html" class="block bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md cursor-pointer mb-2 opacity-75">
+            <p class="text-sm font-medium text-slate-500 mb-2 line-through">회원가입 플로우 개선</p>
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
+              <span class="text-xs text-slate-400 font-medium">High</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+              <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Teams chip -->
+  <div class="fixed bottom-20 right-6 bg-blue-600 text-white px-4 py-2 rounded-full text-sm shadow-lg cursor-pointer hover:bg-blue-700 z-40">
+    💬 #모바일앱리뉴얼 · 3 online
+  </div>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-4 flex gap-2 z-50">
+    <a href="project-2-overview.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">← Prev</a>
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="project-2-list.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+</body>
+</html>

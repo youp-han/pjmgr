@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제 – PJMGR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-white">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-60 bg-slate-50 border-r border-slate-200 flex flex-col z-20">
+    <div class="px-4 flex items-center border-b border-slate-200" style="height:60px">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center mr-2">
+        <span class="text-white font-bold text-sm">PM</span>
+      </div>
+      <span class="font-semibold text-slate-900 text-lg">PJMGR</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <a href="home.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </a>
+      <a href="my-tasks.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        My Tasks
+      </a>
+      <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Projects</div>
+      <a href="project-1-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">ERP 시스템 구축</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-violet-100 text-violet-700 shrink-0">Planning</span>
+      </a>
+      <a href="project-2-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">모바일 앱 리뉴얼</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 shrink-0">Active</span>
+      </a>
+      <a href="project-3-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">사내 포털 개선</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 shrink-0">Done</span>
+      </a>
+      <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-400 hover:bg-slate-100 text-sm w-full text-left">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        New Project
+      </button>
+    </nav>
+    <div class="border-t border-slate-200 p-3 space-y-1">
+      <a href="settings-general.html" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Settings
+      </a>
+      <div class="flex items-center gap-2 px-3 py-2">
+        <div class="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+        <div class="min-w-0">
+          <div class="text-sm font-medium text-slate-900 truncate">김지수</div>
+          <div class="text-xs text-slate-500">PM</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Top Header -->
+  <header class="fixed top-0 left-60 right-0 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10" style="height:60px">
+    <div>
+      <h1 class="text-base font-semibold text-slate-900">결제</h1>
+      <p class="text-xs text-slate-500">Settings / Billing</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="relative">
+        <input type="text" placeholder="Search..." class="pl-8 pr-3 py-1.5 text-sm bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48">
+        <svg class="w-4 h-4 absolute left-2 top-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <a href="notifications.html" class="relative p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold cursor-pointer">JK</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="ml-60 bg-white min-h-screen" style="padding-top:60px">
+    <div class="flex">
+      <!-- Settings Sub-nav -->
+      <nav class="w-44 shrink-0 border-r border-slate-200 min-h-screen pt-2 pr-3">
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2">워크스페이스</div>
+        <a href="settings-general.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">일반</a>
+        <a href="settings-members.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">멤버</a>
+        <a href="settings-roles.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">역할 &amp; 권한</a>
+        <a href="settings-security.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">보안</a>
+        <a href="settings-notifications.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">알림</a>
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2 mt-4">연동</div>
+        <a href="settings-integrations-teams.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">MS Teams</a>
+        <a href="settings-integrations-google.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">Google</a>
+        <a href="settings-integrations-slack.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm mb-0.5">Slack</a>
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2 mt-4">계정</div>
+        <a href="settings-billing.html" class="block px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium text-sm mb-0.5">결제</a>
+      </nav>
+
+      <!-- Content -->
+      <div class="flex-1 pl-8 py-6 max-w-2xl">
+
+        <!-- Current Plan -->
+        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 mb-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-semibold rounded-full">Pro 플랜</span>
+                <span class="text-sm font-semibold text-slate-700">$12/좌석/월</span>
+              </div>
+              <div class="text-2xl font-bold text-slate-900 mt-3 mb-1">
+                7개 좌석 × $12 = <span class="text-indigo-700">$84/월</span>
+              </div>
+              <p class="text-sm text-slate-500">결제 주기: 월간 · 다음 갱신: 2026년 7월 15일</p>
+            </div>
+          </div>
+          <div class="flex gap-2 mt-4">
+            <button class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700">플랜 변경</button>
+            <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-lg border border-slate-300 hover:bg-slate-50">구독 취소</button>
+          </div>
+        </div>
+
+        <!-- Usage -->
+        <div class="border border-slate-200 rounded-xl p-5 mb-5">
+          <h3 class="text-sm font-semibold text-slate-700 mb-4">사용량</h3>
+          <div class="space-y-4">
+            <!-- Seats -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm text-slate-600">좌석</span>
+                <span class="text-sm font-medium text-slate-900">7 / 무제한</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div class="bg-indigo-500 h-2 rounded-full" style="width: 28%"></div>
+              </div>
+            </div>
+            <!-- Projects -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm text-slate-600">프로젝트</span>
+                <span class="text-sm font-medium text-slate-900">45 / 무제한</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div class="bg-indigo-500 h-2 rounded-full" style="width: 45%"></div>
+              </div>
+            </div>
+            <!-- Tasks -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm text-slate-600">태스크</span>
+                <span class="text-sm font-medium text-slate-900">1,234 / 무제한</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div class="bg-indigo-500 h-2 rounded-full" style="width: 62%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="border border-slate-200 rounded-xl p-5 mb-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-700 mb-3">결제 수단</h3>
+              <div class="flex items-center gap-3">
+                <!-- Visa icon -->
+                <div class="w-10 h-7 bg-blue-700 rounded flex items-center justify-center">
+                  <span class="text-white font-bold text-xs italic">VISA</span>
+                </div>
+                <div>
+                  <span class="text-sm font-medium text-slate-800">Visa &bull;&bull;&bull;&bull; 4242</span>
+                  <p class="text-xs text-slate-400">만료: 08/28</p>
+                </div>
+              </div>
+            </div>
+            <button class="px-3 py-1.5 text-xs font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50">결제 수단 변경</button>
+          </div>
+        </div>
+
+        <!-- Billing History -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden mb-6">
+          <div class="px-4 py-3 border-b border-slate-200 bg-slate-50">
+            <h3 class="text-sm font-semibold text-slate-700">청구 이력</h3>
+          </div>
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-slate-100">
+                <th class="text-left px-4 py-3 text-xs font-semibold text-slate-500">날짜</th>
+                <th class="text-left px-4 py-3 text-xs font-semibold text-slate-500">금액</th>
+                <th class="text-left px-4 py-3 text-xs font-semibold text-slate-500">상태</th>
+                <th class="text-left px-4 py-3 text-xs font-semibold text-slate-500">PDF</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 text-sm text-slate-700">Jun 15, 2026</td>
+                <td class="px-4 py-3 text-sm font-medium text-slate-900">$84.00</td>
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-1 text-xs font-medium text-emerald-700">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    결제 완료
+                  </span>
+                </td>
+                <td class="px-4 py-3">
+                  <button class="flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    다운로드
+                  </button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 text-sm text-slate-700">May 15, 2026</td>
+                <td class="px-4 py-3 text-sm font-medium text-slate-900">$84.00</td>
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-1 text-xs font-medium text-emerald-700">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    결제 완료
+                  </span>
+                </td>
+                <td class="px-4 py-3">
+                  <button class="flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    다운로드
+                  </button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 text-sm text-slate-700">Apr 15, 2026</td>
+                <td class="px-4 py-3 text-sm font-medium text-slate-900">$84.00</td>
+                <td class="px-4 py-3">
+                  <span class="flex items-center gap-1 text-xs font-medium text-emerald-700">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    결제 완료
+                  </span>
+                </td>
+                <td class="px-4 py-3">
+                  <button class="flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    다운로드
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-4 flex gap-2 z-50">
+    <a href="settings-integrations-slack.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">← Prev</a>
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="profile.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+</body>
+</html>

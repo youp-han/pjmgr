@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJMGR — 초대 수락</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-slate-50 flex items-center justify-center p-4" style="font-family: 'Inter', sans-serif;">
+
+  <div class="rounded-2xl shadow-lg p-8 bg-white max-w-md w-full">
+
+    <!-- Logo -->
+    <div class="flex items-center justify-center gap-2 mb-8">
+      <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center">
+        <span class="text-white font-bold text-sm">PM</span>
+      </div>
+      <span class="font-bold text-slate-900 text-xl">PJMGR</span>
+    </div>
+
+    <!-- Heading -->
+    <div class="text-center mb-6">
+      <h2 class="text-2xl font-bold text-slate-900">초대를 받으셨습니다! 🎉</h2>
+    </div>
+
+    <!-- Inviter Info Box -->
+    <div class="border-l-4 border-indigo-500 bg-indigo-50 rounded-r-xl p-4 mb-4">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="w-9 h-9 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+        <div>
+          <div class="text-sm font-semibold text-slate-900">김지수 <span class="text-slate-500 font-normal">(PM)</span></div>
+          <div class="text-xs text-slate-500">jisu.kim@company.com</div>
+        </div>
+      </div>
+      <p class="text-sm text-slate-600 pl-0">
+        <span class="font-semibold text-indigo-700">PJMGR 워크스페이스</span>에 참여하도록 초대했습니다.
+      </p>
+    </div>
+
+    <!-- Workspace Info -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-4">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center">
+          <span class="text-white font-bold text-xs">PM</span>
+        </div>
+        <span class="font-semibold text-slate-900 text-sm">TechCorp 워크스페이스</span>
+      </div>
+      <p class="text-xs text-slate-500 mt-1">6명의 팀원 · 3개 활성 프로젝트</p>
+    </div>
+
+    <!-- Project Preview Card -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-semibold text-slate-900">모바일 앱 리뉴얼</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 font-medium">Active</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs text-slate-500">
+        <span>역할: <span class="font-medium text-slate-700">Frontend Dev</span></span>
+        <span>마감: <span class="font-medium text-slate-700">Jul 31, 2026</span></span>
+      </div>
+      <div class="mt-3">
+        <div class="flex justify-between text-xs text-slate-500 mb-1">
+          <span>진행률</span>
+          <span>58%</span>
+        </div>
+        <div class="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+          <div class="h-full bg-indigo-500 rounded-full" style="width: 58%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="space-y-3">
+      <a href="signup.html" class="block w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg text-center transition-colors">
+        초대 수락하기
+      </a>
+      <button class="w-full py-2.5 bg-white hover:bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-200 transition-colors">
+        거절
+      </button>
+    </div>
+
+    <!-- Note -->
+    <p class="text-xs text-slate-400 text-center mt-5">
+      이 초대 링크는 7일 후 만료됩니다.
+    </p>
+
+  </div>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-4 flex gap-2 z-50">
+    <a href="reset-password.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">← Prev</a>
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="onboarding.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+</body>
+</html>

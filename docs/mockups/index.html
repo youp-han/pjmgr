@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJMGR — 목업 프레젠테이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-slate-900 text-white p-8" style="font-family: 'Inter', sans-serif;">
+
+  <!-- Header -->
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center justify-between mb-10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center">
+          <span class="text-white font-bold text-base">PM</span>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-indigo-400">PJMGR</h1>
+          <p class="text-slate-400 text-sm">목업 프레젠테이션</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-slate-400 text-sm">37개 화면 목업 모음</p>
+        <a href="landing.html" class="mt-2 inline-block px-5 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-sm font-semibold transition-colors">
+          Start Demo →
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 1: 인증 흐름 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>🔐</span> 인증 흐름
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="landing.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">landing.html</div>
+          <div class="text-white text-sm font-medium">랜딩 페이지</div>
+        </a>
+        <a href="login.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">login.html</div>
+          <div class="text-white text-sm font-medium">로그인</div>
+        </a>
+        <a href="signup.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">signup.html</div>
+          <div class="text-white text-sm font-medium">회원가입</div>
+        </a>
+        <a href="verify-email.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">verify-email.html</div>
+          <div class="text-white text-sm font-medium">이메일 인증</div>
+        </a>
+        <a href="forgot-password.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">forgot-password.html</div>
+          <div class="text-white text-sm font-medium">비밀번호 찾기</div>
+        </a>
+        <a href="reset-password.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">reset-password.html</div>
+          <div class="text-white text-sm font-medium">비밀번호 재설정</div>
+        </a>
+        <a href="invite.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">invite.html</div>
+          <div class="text-white text-sm font-medium">초대 수락</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 2: 온보딩 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>🚀</span> 온보딩
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="onboarding.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">onboarding.html</div>
+          <div class="text-white text-sm font-medium">워크스페이스 설정 마법사</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 3: 메인 앱 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>🏠</span> 메인 앱
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="home.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">home.html</div>
+          <div class="text-white text-sm font-medium">홈 대시보드</div>
+        </a>
+        <a href="my-tasks.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">my-tasks.html</div>
+          <div class="text-white text-sm font-medium">내 할 일</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 4: 프로젝트 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>📁</span> 프로젝트
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="projects.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">projects.html</div>
+          <div class="text-white text-sm font-medium">프로젝트 목록</div>
+        </a>
+        <a href="project-1-overview.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-1-overview.html</div>
+          <div class="text-white text-sm font-medium">ERP 시스템 구축 (Planning)</div>
+        </a>
+        <a href="project-2-overview.html" class="bg-slate-800 border border-indigo-500 rounded-xl p-4 hover:border-indigo-400 cursor-pointer transition-colors block relative">
+          <div class="absolute top-2 right-2 text-xs bg-indigo-600 text-white px-1.5 py-0.5 rounded">⭐ MAIN</div>
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-overview.html</div>
+          <div class="text-white text-sm font-medium">모바일 앱 리뉴얼 (Active)</div>
+        </a>
+        <a href="project-2-board.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-board.html</div>
+          <div class="text-white text-sm font-medium">칸반 보드</div>
+        </a>
+        <a href="project-2-list.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-list.html</div>
+          <div class="text-white text-sm font-medium">리스트 뷰</div>
+        </a>
+        <a href="project-2-timeline.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-timeline.html</div>
+          <div class="text-white text-sm font-medium">타임라인 (간트)</div>
+        </a>
+        <a href="project-2-calendar.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-calendar.html</div>
+          <div class="text-white text-sm font-medium">캘린더</div>
+        </a>
+        <a href="project-2-reports.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-reports.html</div>
+          <div class="text-white text-sm font-medium">리포트</div>
+        </a>
+        <a href="project-2-members.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-members.html</div>
+          <div class="text-white text-sm font-medium">팀 멤버</div>
+        </a>
+        <a href="project-2-settings.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-2-settings.html</div>
+          <div class="text-white text-sm font-medium">프로젝트 설정</div>
+        </a>
+        <a href="project-3-overview.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">project-3-overview.html</div>
+          <div class="text-white text-sm font-medium">사내 포털 개선 (Completed)</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 5: 태스크 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>📋</span> 태스크
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="task-detail.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">task-detail.html</div>
+          <div class="text-white text-sm font-medium">태스크 상세 (슬라이드오버)</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 6: 알림 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>🔔</span> 알림
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="notifications.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">notifications.html</div>
+          <div class="text-white text-sm font-medium">알림 센터</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 7: 워크스페이스 설정 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>⚙️</span> 워크스페이스 설정
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="settings-general.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-general.html</div>
+          <div class="text-white text-sm font-medium">일반 설정</div>
+        </a>
+        <a href="settings-members.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-members.html</div>
+          <div class="text-white text-sm font-medium">멤버 관리</div>
+        </a>
+        <a href="settings-roles.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-roles.html</div>
+          <div class="text-white text-sm font-medium">역할 &amp; 권한</div>
+        </a>
+        <a href="settings-security.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-security.html</div>
+          <div class="text-white text-sm font-medium">보안 &amp; 감사 로그</div>
+        </a>
+        <a href="settings-notifications.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-notifications.html</div>
+          <div class="text-white text-sm font-medium">알림 설정</div>
+        </a>
+        <a href="settings-integrations-teams.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-integrations-teams.html</div>
+          <div class="text-white text-sm font-medium">MS Teams 연동</div>
+        </a>
+        <a href="settings-integrations-google.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-integrations-google.html</div>
+          <div class="text-white text-sm font-medium">Google 연동</div>
+        </a>
+        <a href="settings-integrations-slack.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-integrations-slack.html</div>
+          <div class="text-white text-sm font-medium">Slack 연동</div>
+        </a>
+        <a href="settings-billing.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">settings-billing.html</div>
+          <div class="text-white text-sm font-medium">결제</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 8: 프로필 -->
+    <div class="mb-10">
+      <h2 class="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <span>👤</span> 프로필
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="profile.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">profile.html</div>
+          <div class="text-white text-sm font-medium">내 프로필</div>
+        </a>
+        <a href="profile-security.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">profile-security.html</div>
+          <div class="text-white text-sm font-medium">계정 보안</div>
+        </a>
+        <a href="profile-notifications.html" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-indigo-500 cursor-pointer transition-colors block">
+          <div class="font-mono text-indigo-400 text-xs mb-1">profile-notifications.html</div>
+          <div class="text-white text-sm font-medium">알림 설정</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center text-slate-600 text-sm pb-4">
+      © 2026 PJMGR Mockup Presentation
+    </div>
+  </div>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-4 flex gap-2 z-50">
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="landing.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+</body>
+</html>

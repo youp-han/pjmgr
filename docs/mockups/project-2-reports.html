@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모바일 앱 리뉴얼 — 리포트 — PJMGR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-slate-50">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-60 bg-slate-50 border-r border-slate-200 flex flex-col z-20">
+    <div class="px-4 flex items-center border-b border-slate-200" style="height:60px">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center mr-2">
+        <span class="text-white font-bold text-sm">PM</span>
+      </div>
+      <span class="font-semibold text-slate-900 text-lg">PJMGR</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <a href="home.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </a>
+      <a href="my-tasks.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        My Tasks
+      </a>
+      <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Projects</div>
+      <a href="project-1-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">ERP 시스템 구축</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-violet-100 text-violet-700 shrink-0">Planning</span>
+      </a>
+      <a href="project-2-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium text-sm">
+        <span class="truncate">모바일 앱 리뉴얼</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 shrink-0">Active</span>
+      </a>
+      <a href="project-3-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">사내 포털 개선</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 shrink-0">Done</span>
+      </a>
+      <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-400 hover:bg-slate-100 text-sm w-full text-left">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        New Project
+      </button>
+    </nav>
+    <div class="border-t border-slate-200 p-3 space-y-1">
+      <a href="settings-general.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Settings
+      </a>
+      <div class="flex items-center gap-2 px-3 py-2">
+        <div class="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+        <div class="min-w-0">
+          <div class="text-sm font-medium text-slate-900 truncate">김지수</div>
+          <div class="text-xs text-slate-500">PM</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Top Header -->
+  <header class="fixed top-0 left-60 right-0 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10" style="height:60px">
+    <div>
+      <h1 class="text-base font-semibold text-slate-900">모바일 앱 리뉴얼 — 리포트</h1>
+      <p class="text-xs text-slate-500">Projects / 모바일 앱 리뉴얼 / Reports</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="relative">
+        <input type="text" placeholder="Search..." class="pl-8 pr-3 py-1.5 text-sm bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48">
+        <svg class="w-4 h-4 absolute left-2 top-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <a href="notifications.html" class="relative p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold cursor-pointer">JK</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-16 min-h-screen">
+
+    <!-- Sub-nav -->
+    <div class="bg-white border-b border-slate-200 px-6">
+      <div class="flex items-center gap-1">
+        <a href="project-2-overview.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Overview</a>
+        <a href="project-2-board.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Board</a>
+        <a href="project-2-list.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">List</a>
+        <a href="project-2-timeline.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Timeline</a>
+        <a href="project-2-calendar.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Calendar</a>
+        <a href="project-2-reports.html" class="px-4 py-3 text-sm border-b-2 border-indigo-600 text-indigo-600 font-medium">Reports</a>
+        <a href="project-2-members.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Members</a>
+        <a href="project-2-settings.html" class="px-4 py-3 text-sm text-slate-600 hover:text-slate-900">Settings</a>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center gap-3">
+      <div class="flex items-center gap-1.5 text-sm text-slate-700 border border-slate-200 rounded-lg px-3 py-1.5 bg-white cursor-pointer hover:bg-slate-50 font-medium">
+        Sprint 3
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <span class="text-sm text-slate-500">Jun 9 ~ Jun 22</span>
+      <div class="ml-auto flex items-center gap-2">
+        <button class="flex items-center gap-1.5 text-sm text-slate-600 border border-slate-200 rounded-lg px-3 py-1.5 hover:bg-slate-50">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          CSV 내보내기
+        </button>
+        <button class="flex items-center gap-1.5 text-sm text-slate-600 border border-slate-200 rounded-lg px-3 py-1.5 hover:bg-slate-50">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          PDF 내보내기
+        </button>
+      </div>
+    </div>
+
+    <div class="p-6">
+
+      <!-- Stats Cards Row -->
+      <div class="grid grid-cols-4 gap-4 mb-5">
+        <div class="bg-white border border-slate-200 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <p class="text-xs text-slate-500">전체 태스크</p>
+          </div>
+          <p class="text-3xl font-bold text-slate-900">20</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <p class="text-xs text-slate-500">완료</p>
+          </div>
+          <p class="text-3xl font-bold text-emerald-600">12</p>
+          <p class="text-xs text-emerald-600 mt-0.5 font-medium">60% 완료</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <p class="text-xs text-slate-500">진행 중</p>
+          </div>
+          <p class="text-3xl font-bold text-indigo-600">2</p>
+        </div>
+        <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            <p class="text-xs text-red-600">지연됨</p>
+          </div>
+          <p class="text-3xl font-bold text-red-600">2</p>
+        </div>
+      </div>
+
+      <!-- Burndown Chart -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 mb-5">
+        <h3 class="text-sm font-semibold text-slate-900 mb-4">번다운 차트 · Sprint 3</h3>
+        <svg viewBox="0 0 500 200" class="w-full">
+          <!-- Background -->
+          <rect x="40" y="10" width="440" height="160" fill="#F8FAFC" rx="4"/>
+          <!-- Grid lines horizontal -->
+          <line x1="40" y1="50" x2="480" y2="50" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="40" y1="90" x2="480" y2="90" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="40" y1="130" x2="480" y2="130" stroke="#E2E8F0" stroke-width="1"/>
+          <!-- Y axis -->
+          <line x1="40" y1="10" x2="40" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+          <!-- Y axis labels -->
+          <text x="5" y="14" font-size="10" fill="#94A3B8">10</text>
+          <text x="5" y="54" font-size="10" fill="#94A3B8">7</text>
+          <text x="5" y="94" font-size="10" fill="#94A3B8">5</text>
+          <text x="5" y="134" font-size="10" fill="#94A3B8">2</text>
+          <text x="5" y="174" font-size="10" fill="#94A3B8">0</text>
+          <!-- X axis labels (sprint days) -->
+          <text x="38" y="190" font-size="9" fill="#94A3B8" text-anchor="middle">Jun 9</text>
+          <text x="118" y="190" font-size="9" fill="#94A3B8" text-anchor="middle">Jun 11</text>
+          <text x="198" y="190" font-size="9" fill="#94A3B8" text-anchor="middle">Jun 13</text>
+          <text x="278" y="190" font-size="9" fill="#94A3B8" text-anchor="middle">Jun 15</text>
+          <text x="358" y="190" font-size="9" fill="#94A3B8" text-anchor="middle">Jun 17</text>
+          <text x="475" y="190" font-size="9" fill="#94A3B8" text-anchor="middle">Jun 22</text>
+          <!-- Ideal line (straight diagonal) -->
+          <line x1="40" y1="10" x2="480" y2="170" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="6,4"/>
+          <!-- Actual line (bumpy, behind ideal) -->
+          <polyline points="40,10 80,12 120,25 160,35 200,50 240,60 280,70 320,85" stroke="#6366F1" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <!-- Today marker at x=280 -->
+          <line x1="280" y1="10" x2="280" y2="170" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <text x="282" y="22" font-size="9" fill="#EF4444">Today</text>
+          <!-- Data point at current -->
+          <circle cx="320" cy="85" r="4" fill="#6366F1"/>
+          <!-- Legend -->
+          <line x1="345" y1="20" x2="365" y2="20" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="370" y="24" font-size="10" fill="#64748B">이상적</text>
+          <line x1="345" y1="35" x2="365" y2="35" stroke="#6366F1" stroke-width="2"/>
+          <circle cx="355" cy="35" r="3" fill="#6366F1"/>
+          <text x="370" y="39" font-size="10" fill="#6366F1">실제</text>
+        </svg>
+      </div>
+
+      <!-- Two-column charts -->
+      <div class="grid grid-cols-2 gap-5 mb-5">
+
+        <!-- Donut Chart: Task Distribution -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5">
+          <h3 class="text-sm font-semibold text-slate-900 mb-3">태스크 분포</h3>
+          <svg viewBox="0 0 200 180" class="w-full">
+            <!-- Done 60% -->
+            <circle cx="100" cy="90" r="60" fill="none" stroke="#10B981" stroke-width="30" stroke-dasharray="226 150" stroke-dashoffset="0" transform="rotate(-90 100 90)"/>
+            <!-- In Progress 10% -->
+            <circle cx="100" cy="90" r="60" fill="none" stroke="#6366F1" stroke-width="30" stroke-dasharray="37.7 338" stroke-dashoffset="-226" transform="rotate(-90 100 90)"/>
+            <!-- In Review 10% -->
+            <circle cx="100" cy="90" r="60" fill="none" stroke="#F59E0B" stroke-width="30" stroke-dasharray="37.7 338" stroke-dashoffset="-264" transform="rotate(-90 100 90)"/>
+            <!-- Todo 20% -->
+            <circle cx="100" cy="90" r="60" fill="none" stroke="#94A3B8" stroke-width="30" stroke-dasharray="75.4 300" stroke-dashoffset="-301" transform="rotate(-90 100 90)"/>
+            <!-- Center hole -->
+            <circle cx="100" cy="90" r="45" fill="white"/>
+            <text x="100" y="87" text-anchor="middle" font-size="18" font-weight="bold" fill="#0F172A">20</text>
+            <text x="100" y="100" text-anchor="middle" font-size="10" fill="#64748B">tasks</text>
+            <!-- Legend -->
+            <rect x="10" y="155" width="10" height="10" fill="#10B981" rx="2"/>
+            <text x="24" y="164" font-size="9" fill="#64748B">완료 60%</text>
+            <rect x="75" y="155" width="10" height="10" fill="#6366F1" rx="2"/>
+            <text x="89" y="164" font-size="9" fill="#64748B">진행 10%</text>
+            <rect x="130" y="155" width="10" height="10" fill="#F59E0B" rx="2"/>
+            <text x="144" y="164" font-size="9" fill="#64748B">검토 10%</text>
+          </svg>
+        </div>
+
+        <!-- Bar Chart: Team Workload -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5">
+          <h3 class="text-sm font-semibold text-slate-900 mb-3">팀 워크로드</h3>
+          <svg viewBox="0 0 260 180" class="w-full">
+            <!-- Y axis -->
+            <line x1="50" y1="10" x2="50" y2="150" stroke="#E2E8F0"/>
+            <line x1="50" y1="150" x2="250" y2="150" stroke="#E2E8F0"/>
+            <!-- Y axis labels -->
+            <text x="25" y="14" font-size="9" fill="#94A3B8" text-anchor="end">5</text>
+            <text x="25" y="54" font-size="9" fill="#94A3B8" text-anchor="end">3</text>
+            <text x="25" y="110" font-size="9" fill="#94A3B8" text-anchor="end">1</text>
+            <line x1="45" y1="10" x2="50" y2="10" stroke="#E2E8F0"/>
+            <line x1="45" y1="50" x2="50" y2="50" stroke="#E2E8F0"/>
+            <line x1="45" y1="110" x2="50" y2="110" stroke="#E2E8F0"/>
+            <!-- ML: 5 tasks (full height) -->
+            <rect x="65" y="50" width="35" height="100" fill="#6366F1" rx="3"/>
+            <text x="82" y="47" text-anchor="middle" font-size="10" fill="#64748B" font-weight="600">5</text>
+            <text x="82" y="165" text-anchor="middle" font-size="9" fill="#64748B">이민준</text>
+            <!-- SC: 3 tasks -->
+            <rect x="115" y="90" width="35" height="60" fill="#EC4899" rx="3"/>
+            <text x="132" y="87" text-anchor="middle" font-size="10" fill="#64748B" font-weight="600">3</text>
+            <text x="132" y="165" text-anchor="middle" font-size="9" fill="#64748B">최서연</text>
+            <!-- SH: 2 tasks -->
+            <rect x="165" y="110" width="35" height="40" fill="#10B981" rx="3"/>
+            <text x="182" y="107" text-anchor="middle" font-size="10" fill="#64748B" font-weight="600">2</text>
+            <text x="182" y="165" text-anchor="middle" font-size="9" fill="#64748B">한소희</text>
+            <!-- JK: 1 task -->
+            <rect x="215" y="130" width="35" height="20" fill="#6366F1" rx="3" opacity="0.5"/>
+            <text x="232" y="127" text-anchor="middle" font-size="10" fill="#64748B" font-weight="600">1</text>
+            <text x="232" y="165" text-anchor="middle" font-size="9" fill="#64748B">김지수</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Milestone Progress Table -->
+      <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+        <div class="px-5 py-4 border-b border-slate-100">
+          <h3 class="text-sm font-semibold text-slate-900">마일스톤 진행 현황</h3>
+        </div>
+        <table class="w-full">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">마일스톤</th>
+              <th class="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">목표일</th>
+              <th class="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">상태</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="hover:bg-slate-50">
+              <td class="px-5 py-3 text-sm text-slate-800 font-medium">M1 디자인 시스템 완성</td>
+              <td class="px-5 py-3 text-sm text-slate-500">Apr 30, 2026</td>
+              <td class="px-5 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">✅ Achieved</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-5 py-3 text-sm text-slate-800 font-medium">M2 Alpha 출시</td>
+              <td class="px-5 py-3 text-sm text-slate-500">May 31, 2026</td>
+              <td class="px-5 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">✅ Achieved</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-5 py-3 text-sm text-slate-800 font-medium">M3 Beta 출시</td>
+              <td class="px-5 py-3 text-sm text-slate-500">Jun 30, 2026</td>
+              <td class="px-5 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700">⚠ At Risk</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-5 py-3 text-sm text-slate-800 font-medium">M4 정식 출시</td>
+              <td class="px-5 py-3 text-sm text-slate-500">Jul 31, 2026</td>
+              <td class="px-5 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">Upcoming</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-4 flex gap-2 z-50">
+    <a href="project-2-timeline.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">← Prev</a>
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="project-2-members.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+</body>
+</html>

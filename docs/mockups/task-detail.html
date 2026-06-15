@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJMGR — 태스크 상세</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: { DEFAULT: '#6366F1', dark: '#4F46E5', light: '#EEF2FF' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-slate-100">
+
+  <!-- Sidebar (always visible, not dimmed) -->
+  <aside class="fixed left-0 top-0 h-screen w-60 bg-slate-50 border-r border-slate-200 flex flex-col z-20">
+    <div class="px-4 flex items-center border-b border-slate-200" style="height:60px">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center mr-2">
+        <span class="text-white font-bold text-sm">PM</span>
+      </div>
+      <span class="font-semibold text-slate-900 text-lg">PJMGR</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <a href="home.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </a>
+      <a href="my-tasks.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        My Tasks
+      </a>
+      <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Projects</div>
+      <a href="project-1-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">ERP 시스템 구축</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-violet-100 text-violet-700 shrink-0">Planning</span>
+      </a>
+      <a href="project-2-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium text-sm">
+        <span class="truncate">모바일 앱 리뉴얼</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 shrink-0">Active</span>
+      </a>
+      <a href="project-3-overview.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <span class="truncate">사내 포털 개선</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 shrink-0">Done</span>
+      </a>
+      <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-400 hover:bg-slate-100 text-sm w-full text-left">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        New Project
+      </button>
+    </nav>
+    <div class="border-t border-slate-200 p-3 space-y-1">
+      <a href="settings-general.html" class="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Settings
+      </a>
+      <div class="flex items-center gap-2 px-3 py-2">
+        <div class="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+        <div class="min-w-0">
+          <div class="text-sm font-medium text-slate-900 truncate">김지수</div>
+          <div class="text-xs text-slate-500">PM</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header (also always visible) -->
+  <header class="fixed top-0 left-60 right-0 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10" style="height:60px">
+    <div>
+      <h1 class="text-base font-semibold text-slate-900">모바일 앱 리뉴얼 — Board</h1>
+      <p class="text-xs text-slate-500">Projects / 모바일 앱 리뉴얼 / Board</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="relative">
+        <input type="text" placeholder="Search..." class="pl-8 pr-3 py-1.5 text-sm bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48">
+        <svg class="w-4 h-4 absolute left-2 top-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <a href="notifications.html" class="relative p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+      </a>
+      <a href="profile.html" class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold cursor-pointer">JK</a>
+    </div>
+  </header>
+
+  <!-- Background Board Content (dimmed) -->
+  <main class="ml-60 pt-16 min-h-screen opacity-40 pointer-events-none select-none">
+    <!-- Sub-nav -->
+    <div class="bg-white border-b border-slate-200 px-6">
+      <nav class="flex gap-1 -mb-px">
+        <a href="project-2-overview.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">Overview</a>
+        <a href="project-2-board.html" class="px-4 py-3 text-sm font-medium text-indigo-600 border-b-2 border-indigo-600">Board</a>
+        <a href="project-2-list.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">List</a>
+        <a href="project-2-timeline.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">Timeline</a>
+        <a href="project-2-calendar.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">Calendar</a>
+        <a href="project-2-reports.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">Reports</a>
+        <a href="project-2-members.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">Members</a>
+        <a href="project-2-settings.html" class="px-4 py-3 text-sm text-slate-500 border-b-2 border-transparent">Settings</a>
+      </nav>
+    </div>
+
+    <!-- Simplified Kanban Board Background -->
+    <div class="p-6">
+      <div class="flex gap-4 overflow-x-auto pb-4">
+        <!-- To Do Column -->
+        <div class="flex-shrink-0 w-64">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+              <span class="text-sm font-semibold text-slate-700">할 일</span>
+              <span class="text-xs text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">4</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+              <p class="text-xs font-medium text-slate-800 mb-2">피드 UI 컴포넌트 제작</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">frontend</span>
+                <div class="w-5 h-5 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs">M</div>
+              </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+              <p class="text-xs font-medium text-slate-800 mb-2">푸시 알림 연동</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">backend</span>
+                <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-xs">H</div>
+              </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+              <p class="text-xs font-medium text-slate-800 mb-2">다크모드 지원</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">design</span>
+                <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs">S</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- In Progress Column -->
+        <div class="flex-shrink-0 w-64">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold text-slate-700">진행 중</span>
+              <span class="text-xs text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">3</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="bg-white border-2 border-indigo-300 rounded-lg p-3 shadow-sm ring-2 ring-indigo-100">
+              <div class="flex items-center gap-1 mb-1">
+                <span class="text-xs text-slate-400">PROJ-2-007</span>
+              </div>
+              <p class="text-xs font-medium text-slate-800 mb-2">소셜 로그인 연동 (Google/Apple)</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-red-100 text-red-600 text-xs rounded">긴급</span>
+                <div class="w-5 h-5 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs">M</div>
+              </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+              <p class="text-xs font-medium text-slate-800 mb-2">온보딩 화면 퍼블리싱</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">frontend</span>
+                <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs">S</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- In Review Column -->
+        <div class="flex-shrink-0 w-64">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+              <span class="text-sm font-semibold text-slate-700">검토 중</span>
+              <span class="text-xs text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">2</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+              <p class="text-xs font-medium text-slate-800 mb-2">프로필 화면 리뉴얼</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">design</span>
+                <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs">S</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Done Column -->
+        <div class="flex-shrink-0 w-64">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+              <span class="text-sm font-semibold text-slate-700">완료</span>
+              <span class="text-xs text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">6</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm opacity-75">
+              <p class="text-xs font-medium text-slate-600 line-through mb-2">회원가입 플로우 개선</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-500 text-xs rounded">frontend</span>
+                <div class="w-5 h-5 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs">M</div>
+              </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm opacity-75">
+              <p class="text-xs font-medium text-slate-600 line-through mb-2">앱 아이콘 업데이트</p>
+              <div class="flex items-center justify-between">
+                <span class="px-1.5 py-0.5 bg-slate-100 text-slate-500 text-xs rounded">design</span>
+                <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs">S</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dark Overlay -->
+  <div class="fixed inset-0 bg-black bg-opacity-20 z-30" style="left:240px; top:60px;"></div>
+
+  <!-- Slide-over Panel -->
+  <div class="fixed top-0 right-0 h-screen w-[480px] bg-white border-l border-slate-200 z-40 overflow-y-auto shadow-2xl flex flex-col">
+
+    <!-- Panel Header -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 px-5 py-4 flex items-start justify-between z-10">
+      <div class="flex-1 min-w-0 pr-4">
+        <div class="text-xs text-slate-400 mb-1">#PROJ-2-007</div>
+        <h2 class="font-semibold text-lg text-slate-900 leading-tight">소셜 로그인 연동 (Google/Apple)</h2>
+      </div>
+      <a href="project-2-board.html" class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-700 text-xl font-light">&times;</a>
+    </div>
+
+    <!-- Panel Body -->
+    <div class="flex-1 p-5 space-y-4">
+
+      <!-- Status + Priority -->
+      <div class="flex items-center gap-3">
+        <div>
+          <label class="block text-xs text-slate-500 mb-1">상태</label>
+          <select class="px-3 py-1.5 bg-amber-100 text-amber-700 border border-amber-200 rounded-lg text-sm font-medium focus:outline-none">
+            <option>할 일</option>
+            <option>진행 중</option>
+            <option selected>검토 중</option>
+            <option>완료</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-slate-500 mb-1">우선순위</label>
+          <select class="px-3 py-1.5 bg-red-100 text-red-700 border border-red-200 rounded-lg text-sm font-medium focus:outline-none">
+            <option>낮음</option>
+            <option>보통</option>
+            <option>높음</option>
+            <option selected>긴급</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Fields Grid -->
+      <div class="bg-slate-50 rounded-xl p-4">
+        <div class="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+          <div>
+            <div class="text-xs text-slate-500 mb-1">담당자</div>
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold">ML</div>
+              <span class="text-slate-800 font-medium">이민준</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 mb-1">마감일</div>
+            <span class="text-red-600 font-medium">Jun 17, 2026</span>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 mb-1">시작일</div>
+            <span class="text-slate-800">Jun 10, 2026</span>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 mb-1">스토리 포인트</div>
+            <span class="text-slate-800 font-medium">5</span>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 mb-1">레이블</div>
+            <div class="flex items-center gap-1">
+              <span class="px-2 py-0.5 bg-slate-200 text-slate-700 text-xs rounded-full">backend</span>
+              <span class="px-2 py-0.5 bg-slate-200 text-slate-700 text-xs rounded-full">auth</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 mb-1">프로젝트</div>
+            <span class="text-slate-800">모바일 앱 리뉴얼</span>
+          </div>
+          <div class="col-span-2">
+            <div class="text-xs text-slate-500 mb-1">스프린트</div>
+            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded-full font-medium">Sprint 3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MS Teams Section -->
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20.625 5.625H13.5V3.375A1.125 1.125 0 0012.375 2.25h-4.5A1.125 1.125 0 006.75 3.375v2.25H3.375A1.125 1.125 0 002.25 6.75v10.5a1.125 1.125 0 001.125 1.125h6.75v1.875a1.125 1.125 0 001.125 1.125h1.5a1.125 1.125 0 001.125-1.125V18.375h6.75a1.125 1.125 0 001.125-1.125V6.75a1.125 1.125 0 00-1.125-1.125z"/></svg>
+            </div>
+            <span class="text-sm font-semibold text-blue-900">MS Teams</span>
+          </div>
+          <button class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 flex items-center gap-1">
+            <span>🎥</span> 미팅 예약
+          </button>
+        </div>
+        <div class="flex items-center justify-between bg-white rounded-lg px-3 py-2">
+          <div class="text-xs text-slate-700">
+            <span class="text-slate-500">Jun 14 스탠드업</span> · <span class="font-medium">09:00 AM</span>
+          </div>
+          <a href="#" class="text-xs text-blue-600 font-medium hover:underline">참여</a>
+        </div>
+      </div>
+
+      <!-- Google Docs Section -->
+      <div class="bg-white border border-slate-200 rounded-lg p-3">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          <span class="text-sm font-semibold text-slate-700">Google Docs</span>
+        </div>
+        <a href="#" class="flex items-center gap-2 mb-2 text-sm text-indigo-600 hover:text-indigo-700">
+          <span>📄</span>
+          <span>모바일 앱 리뉴얼 요구사항 정의서</span>
+        </a>
+        <button class="text-xs text-slate-500 hover:text-slate-700 border border-dashed border-slate-300 rounded-lg px-3 py-1.5 w-full text-left">+ 문서 연결</button>
+      </div>
+
+      <!-- Tabs -->
+      <div>
+        <div class="flex border-b border-slate-200 mb-4">
+          <button id="btn-description" onclick="showTab('description')" class="tab-btn px-4 py-2.5 text-sm font-medium border-b-2 border-indigo-600 text-indigo-600">설명</button>
+          <button id="btn-subtasks" onclick="showTab('subtasks')" class="tab-btn px-4 py-2.5 text-sm text-slate-500 border-b-2 border-transparent hover:text-slate-700">하위 태스크</button>
+          <button id="btn-comments" onclick="showTab('comments')" class="tab-btn px-4 py-2.5 text-sm text-slate-500 border-b-2 border-transparent hover:text-slate-700">
+            Comments <span class="ml-1 px-1.5 py-0.5 bg-slate-200 text-slate-600 text-xs rounded-full">3</span>
+          </button>
+          <button id="btn-activity" onclick="showTab('activity')" class="tab-btn px-4 py-2.5 text-sm text-slate-500 border-b-2 border-transparent hover:text-slate-700">활동</button>
+        </div>
+
+        <!-- Description Tab -->
+        <div id="tab-description" class="tab-content">
+          <div class="text-sm text-slate-700 space-y-3">
+            <p>Google OAuth 2.0 및 Apple Sign In 구현. 백엔드 토큰 검증 포함.</p>
+            <div>
+              <p class="font-medium text-slate-900 mb-2">완료 조건:</p>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 rounded text-indigo-600 border-slate-300">
+                  <span>Google OAuth 플로우 구현</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 rounded text-indigo-600 border-slate-300">
+                  <span>Apple Sign In 구현</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" checked class="w-4 h-4 rounded text-indigo-600 border-slate-300">
+                  <span class="line-through text-slate-400">테스트 계정으로 동작 확인</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-tasks Tab -->
+        <div id="tab-subtasks" class="tab-content hidden">
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 p-3 border border-slate-200 rounded-lg">
+              <input type="checkbox" checked class="w-4 h-4 rounded text-indigo-600 border-slate-300">
+              <div class="flex-1">
+                <div class="text-sm text-slate-700 line-through text-slate-400">Google OAuth 2.0 설정</div>
+                <div class="text-xs text-emerald-600">완료</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 border border-slate-200 rounded-lg">
+              <input type="checkbox" checked class="w-4 h-4 rounded text-indigo-600 border-slate-300">
+              <div class="flex-1">
+                <div class="text-sm text-slate-700 line-through text-slate-400">백엔드 토큰 검증 로직 구현</div>
+                <div class="text-xs text-emerald-600">완료</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 border border-slate-200 rounded-lg">
+              <input type="checkbox" class="w-4 h-4 rounded text-indigo-600 border-slate-300">
+              <div class="flex-1">
+                <div class="text-sm text-slate-800 font-medium">Apple Sign In 구현</div>
+                <div class="text-xs text-amber-600">진행 중</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments Tab -->
+        <div id="tab-comments" class="tab-content hidden">
+          <div class="space-y-4 mb-4">
+            <!-- Comment 1 -->
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">ML</div>
+              <div class="flex-1">
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-sm font-semibold text-slate-900">이민준</span>
+                  <span class="text-xs text-slate-400">Jun 14</span>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-700">
+                  Google OAuth 백엔드 연동 완료했습니다. Apple 쪽 마저 처리 중입니다.
+                </div>
+              </div>
+            </div>
+            <!-- Comment 2 -->
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+              <div class="flex-1">
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-sm font-semibold text-slate-900">김지수</span>
+                  <span class="text-xs text-slate-400">Jun 14</span>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-700">
+                  <span class="text-indigo-600 font-medium">@이민준</span> Apple Sign In 완료 후 리뷰 요청 부탁드립니다. 오늘 안에 가능할까요?
+                </div>
+              </div>
+            </div>
+            <!-- Comment 3 -->
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">ML</div>
+              <div class="flex-1">
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-sm font-semibold text-slate-900">이민준</span>
+                  <span class="text-xs text-slate-400">Jun 15</span>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-700">
+                  네, 오늘 오후에 PR 올리겠습니다 🙏
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Comment Input -->
+          <div class="flex gap-2">
+            <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-semibold shrink-0">JK</div>
+            <div class="flex-1">
+              <input type="text" placeholder="댓글 작성..." class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50">
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Tab -->
+        <div id="tab-activity" class="tab-content hidden">
+          <div class="relative pl-5">
+            <div class="absolute left-1.5 top-0 bottom-0 w-px bg-slate-200"></div>
+            <div class="space-y-4">
+              <div class="relative">
+                <div class="absolute -left-4 top-1.5 w-2.5 h-2.5 rounded-full bg-amber-400 border-2 border-white"></div>
+                <div class="text-xs text-slate-400 mb-0.5">Jun 15 09:30</div>
+                <div class="text-sm text-slate-700">이민준이 상태를 <span class="font-medium text-amber-600">In Review</span>로 변경</div>
+              </div>
+              <div class="relative">
+                <div class="absolute -left-4 top-1.5 w-2.5 h-2.5 rounded-full bg-slate-300 border-2 border-white"></div>
+                <div class="text-xs text-slate-400 mb-0.5">Jun 14 17:00</div>
+                <div class="text-sm text-slate-700">이민준이 댓글 작성</div>
+              </div>
+              <div class="relative">
+                <div class="absolute -left-4 top-1.5 w-2.5 h-2.5 rounded-full bg-slate-300 border-2 border-white"></div>
+                <div class="text-xs text-slate-400 mb-0.5">Jun 14 09:00</div>
+                <div class="text-sm text-slate-700">김지수가 담당자를 <span class="font-medium text-violet-600">이민준</span>으로 지정</div>
+              </div>
+              <div class="relative">
+                <div class="absolute -left-4 top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-400 border-2 border-white"></div>
+                <div class="text-xs text-slate-400 mb-0.5">Jun 10 10:00</div>
+                <div class="text-sm text-slate-700">태스크 생성</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Nav -->
+  <div class="fixed bottom-4 right-[500px] flex gap-2 z-50">
+    <a href="project-3-overview.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">← Prev</a>
+    <a href="index.html" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 shadow-sm hover:bg-slate-50">Index</a>
+    <a href="notifications.html" class="px-3 py-2 bg-indigo-600 rounded-lg text-sm text-white shadow-sm hover:bg-indigo-700">Next →</a>
+  </div>
+
+  <script>
+    function showTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('border-indigo-600', 'text-indigo-600');
+        el.classList.add('border-transparent', 'text-slate-500');
+      });
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+      const btn = document.getElementById('btn-' + tabName);
+      btn.classList.add('border-indigo-600', 'text-indigo-600');
+      btn.classList.remove('border-transparent', 'text-slate-500');
+    }
+  </script>
+
+</body>
+</html>
